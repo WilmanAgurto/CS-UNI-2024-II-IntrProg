@@ -7,10 +7,12 @@
 #include <vector>
 #include <iostream>
 
+using namespace std;
+
 class Hoja {
 public:
     Hoja(int filas, int columnas) : filas(filas), columnas(columnas) {
-        tabla.resize(filas, std::vector<Celda*>(columnas, nullptr));
+        tabla.resize(filas, vector<Celda*>(columnas, nullptr));
     }
 
     void establecerCelda(int fila, int columna, Celda* celda) {
@@ -23,18 +25,18 @@ public:
         for (int i = 0; i < filas; ++i) {
             for (int j = 0; j < columnas; ++j) {
                 if (tabla[i][j]) {
-                    std::cout << tabla[i][j]->obtenerValor() << "\t";
+                    cout << tabla[i][j]->obtenerValor() << "\t";
                 } else {
-                    std::cout << "Vacía\t";
+                    cout << "Vacía\t";
                 }
             }
-            std::cout << std::endl;
+            cout << endl;
         }
     }
 
 private:
     int filas, columnas;
-    std::vector<std::vector<Celda*>> tabla;
+    vector<vector<Celda*>> tabla;
 };
 
 #endif
